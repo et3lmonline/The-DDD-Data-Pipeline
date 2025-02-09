@@ -1,0 +1,37 @@
+# docker compose -f 'docker\docker_compose_pg.yaml' up -d
+services:
+  db1:
+    container_name: pg_db
+    image: postgres:15
+    ports:
+      - 5430:5432
+    user: ${SRC_PG_CONTOSO_USERNAME}
+    env_file:
+      - "../.env"
+    environment:
+      POSTGRES_DB: ${SRC_PG_CONTOSO_DATABASE}
+      POSTGRES_USER: ${SRC_PG_CONTOSO_USERNAME}
+      POSTGRES_PASSWORD: ${SRC_PG_CONTOSO_PASSWORD}
+      TZ: "UTC"
+      PGTZ: "UTC"
+    volumes:
+      - ./scripts/sql/:/docker-entrypoint-initdb.d/
+      - postgres-db-volume:/var/lib/postgresql/data
+
+    restart: always
+    healthcheck:
+      test: [ "CMD", "pg_isready" ]
+      interval: 5s
+      retries: 5
+
+volumes:
+  # if we got failed to mount local volume: mount ../docker_volumes/db1:/var/..., drop the volume
+  postgres-db-volume:
+    # default, using the local filesystem on the host machine
+    driver: local
+    driver_opts:
+      # bind mounts, linking to a specific path on the host machine.
+      type: none
+      # bind or `ro` (read-only)
+      o: bind
+      device: ../docker_volumes/db1

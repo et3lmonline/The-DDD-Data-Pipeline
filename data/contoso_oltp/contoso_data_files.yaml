@@ -1,0 +1,158 @@
+tables:
+  - name: addresses
+    is_enabled: true
+    files:
+      - data\contoso_oltp\data\addresses.parquet
+  - name: brands
+    is_enabled: true
+    files:
+      - data\contoso_oltp\data\brands.parquet
+  - name: channels
+    is_enabled: false
+    files:
+      - data\contoso_oltp\data\channels.parquet
+  - name: colors
+    is_enabled: true
+    files:
+      - data\contoso_oltp\data\colors.parquet
+  - name: currencies
+    is_enabled: true
+    files:
+      - data\contoso_oltp\data\currencies.parquet
+  - name: geographies
+    is_enabled: true
+    files:
+      - data\contoso_oltp\data\geographies.parquet
+  - name: customers
+    is_enabled: true
+    files:
+      - data\contoso_oltp\data\customers.parquet
+  - name: departments
+    is_enabled: true
+    files:
+      - data\contoso_oltp\data\departments.parquet
+  - name: job_titles
+    is_enabled: true
+    files:
+      - data\contoso_oltp\data\job_titles.parquet
+  - name: employees
+    is_enabled: true
+    files:
+      - data\contoso_oltp\data\employees.parquet
+  - name: entities
+    is_enabled: true
+    files:
+      - data\contoso_oltp\data\entities.parquet
+  - name: exchange_rates
+    is_enabled: false
+    files:
+      - data\contoso_oltp\data\exchange_rates.parquet
+  - name: gl_accounts
+    is_enabled: false
+    files:
+      - data\contoso_oltp\data\gl_accounts.parquet
+  - name: stores
+    is_enabled: true
+    files:
+      - data\contoso_oltp\data\stores.parquet
+  - name: machines
+    is_enabled: false
+    files:
+      - data\contoso_oltp\data\machines.parquet
+  - name: it_machine_costs
+    is_enabled: false
+    files:
+      - data\contoso_oltp\data\it_machine_costs.parquet
+  - name: manufacturers
+    is_enabled: true
+    files:
+      - data\contoso_oltp\data\manufacturers.parquet
+  - name: outages
+    is_enabled: false
+    files:
+      - data\contoso_oltp\data\outages.parquet
+  - name: product_categories
+    is_enabled: true
+    files:
+      - data\contoso_oltp\data\product_categories.parquet
+  - name: product_subcategories
+    is_enabled: true
+    files:
+      - data\contoso_oltp\data\product_subcategories.parquet
+  - name: products
+    is_enabled: true
+    files:
+      - data\contoso_oltp\data\products.parquet
+  - name: promotions
+    is_enabled: true
+    files:
+      - data\contoso_oltp\data\promotions.parquet
+  - name: sales_territories
+    is_enabled: false
+    files:
+      - data\contoso_oltp\data\sales_territories.parquet
+  - name: scenarios
+    is_enabled: false
+    files:
+      - data\contoso_oltp\data\scenarios.parquet
+  - name: outage_transactions
+    is_enabled: false
+    files:
+      - data\contoso_oltp\data\outage_transactions.parquet
+  - name: sales_order_lines
+    is_enabled: false
+    files:
+      # - data\contoso_oltp\data\sales_order_lines\sales_order_lines_2007_1.parquet
+      - data\contoso_oltp\data\sales_order_lines\sales_order_lines_2007_2.parquet
+      # - data\contoso_oltp\data\sales_order_lines\sales_order_lines_2008_1.parquet
+      # - data\contoso_oltp\data\sales_order_lines\sales_order_lines_2008_2.parquet
+      # - data\contoso_oltp\data\sales_order_lines\sales_order_lines_2009_1.parquet
+  - name: inventory_weekly_snapshot
+    is_enabled: false
+    files:
+      # - data\contoso_oltp\data\inventory_weekly_snapshot\inventory_weekly_snapshot_2007_1.parquet
+      # - data\contoso_oltp\data\inventory_weekly_snapshot\inventory_weekly_snapshot_2007_2.parquet
+      # - data\contoso_oltp\data\inventory_weekly_snapshot\inventory_weekly_snapshot_2007_3.parquet
+      - data\contoso_oltp\data\inventory_weekly_snapshot\inventory_weekly_snapshot_2007_4.parquet
+      # - data\contoso_oltp\data\inventory_weekly_snapshot\inventory_weekly_snapshot_2008_1.parquet
+      # - data\contoso_oltp\data\inventory_weekly_snapshot\inventory_weekly_snapshot_2008_2.parquet
+      # - data\contoso_oltp\data\inventory_weekly_snapshot\inventory_weekly_snapshot_2008_3.parquet
+      # - data\contoso_oltp\data\inventory_weekly_snapshot\inventory_weekly_snapshot_2009_1.parquet
+      # - data\contoso_oltp\data\inventory_weekly_snapshot\inventory_weekly_snapshot_2009_2.parquet
+  - name: online_sales_order_lines
+    is_enabled: true
+    files:
+      # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2007_1.parquet
+      # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2007_2.parquet
+      # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2007_3.parquet
+      # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2007_4.parquet
+      - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2007_5.parquet
+      # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2008_1.parquet
+      # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2008_2.parquet
+      # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2008_3.parquet
+      # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2008_4.parquet
+      # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2009_1.parquet
+      # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2009_2.parquet
+      # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2009_3.parquet
+      # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2009_4.parquet
+      # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2009_5.parquet
+      # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2009_6.parquet
+  - name: sales_quotas
+    is_enabled: false
+    files:
+      # - data\contoso_oltp\data\sales_quotas\sales_quotas_2007_1.parquet
+      # - data\contoso_oltp\data\sales_quotas\sales_quotas_2007_2.parquet
+      # - data\contoso_oltp\data\sales_quotas\sales_quotas_2007_3.parquet
+      - data\contoso_oltp\data\sales_quotas\sales_quotas_2007_4.parquet
+      # - data\contoso_oltp\data\sales_quotas\sales_quotas_2008_1.parquet
+      # - data\contoso_oltp\data\sales_quotas\sales_quotas_2008_2.parquet
+      # - data\contoso_oltp\data\sales_quotas\sales_quotas_2008_3.parquet
+      # - data\contoso_oltp\data\sales_quotas\sales_quotas_2009_1.parquet
+      # - data\contoso_oltp\data\sales_quotas\sales_quotas_2009_2.parquet
+  - name: strategy_plans
+    is_enabled: false
+    files:
+      - data\contoso_oltp\data\strategy_plans\strategy_plans_2007_1.parquet
+      # - data\contoso_oltp\data\strategy_plans\strategy_plans_2008_1.parquet
+      # - data\contoso_oltp\data\strategy_plans\strategy_plans_2009_1.parquet
+
