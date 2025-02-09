@@ -10,9 +10,23 @@ The DDD Data Pipelines leverage these frameworks:
   - **DuckDB**: an in-memory OLAP database.
   - **Docker**: for containerization.
 
+<!-- TOC -->
+
+- [The DDD Data Pipelines](#the-ddd-data-pipelines)
+  - [Summary](#summary)
+    - [استخدام data load tool (dlt) لعمليات Extract \& Load](#استخدام-data-load-tool-dlt-لعمليات-extract--load)
+    - [التأكد من صحة إعدادات YAML باستخدام Pydantic](#التأكد-من-صحة-إعدادات-yaml-باستخدام-pydantic)
+    - [معالجة البيانات بعد تحميلها (Transformations) باستخدام dbt](#معالجة-البيانات-بعد-تحميلها-transformations-باستخدام-dbt)
+    - [جدولة وتنفيذ ال data pipeline باستخدام Dagster](#جدولة-وتنفيذ-ال-data-pipeline-باستخدام-dagster)
+  - [Videos](#videos)
+
+<!-- /TOC -->
+
 ---
 
 ![The DDD data pipeline - Dagster Assets lineage](docs/images/ddd_data_pipeline_dagster_asset_lineage.png)
+
+## Summary
 
 **بإذن الله في هذا المشروع التعليمي سنقوم بتنفيذ كل شيء على الجهاز الشخصي (locally) دون الاعتماد على خدمات أونلاين. لاحقًا، قد ننتقل من DuckDB إلى Google BigQuery.**
 
@@ -54,3 +68,8 @@ The DDD Data Pipelines leverage these frameworks:
   - إجراء عملية الربط integration بين dagster & dbt
   - ضمان وجود ترابط صحيح بين مخرجات كلا من dlt & dbt داخل بيئة dagster من خلال ال Translators
   - بناء dagster jobs & schedules لتنفيذ ال data pipeline بداية من سحب البيانات وتخزينها باستخدام dlt ثم عمليات المعالجة باستخدام dbt
+
+## Videos
+1. (Helper) Loading the Postgres source database from Parquet files.
+2. Builidng a PoC for the DDD data pipeline
+   ![The DDD data pipeline - Dagster Assets lineage](docs/images/ddd_data_pipeline_dagster_asset_lineage.png)
