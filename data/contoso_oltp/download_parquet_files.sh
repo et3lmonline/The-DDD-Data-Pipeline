@@ -5,7 +5,7 @@ BASE_URL="https://github.com/et3lmonline/datasets/raw/refs/heads/main/contoso_ol
 
 # Lite files list
 lite_files=(
-  # Part 01
+  # Part 01 (19 files ~ 7 MB)
   "colors.parquet"
   "brands.parquet"
   "product_subcategories.parquet"
@@ -23,6 +23,8 @@ lite_files=(
   "departments.parquet"
   "job_titles.parquet"
   "online_sales_order_lines/online_sales_order_lines_2007_5.parquet"
+  "online_sales_order_lines/online_sales_order_lines_2008_4.parquet"
+  "online_sales_order_lines/online_sales_order_lines_2009_6.parquet"
 
   # Part 02
   # "scenarios.parquet"
@@ -60,13 +62,11 @@ full_files=(
   "online_sales_order_lines/online_sales_order_lines_2008_1.parquet"
   "online_sales_order_lines/online_sales_order_lines_2008_2.parquet"
   "online_sales_order_lines/online_sales_order_lines_2008_3.parquet"
-  "online_sales_order_lines/online_sales_order_lines_2008_4.parquet"
   "online_sales_order_lines/online_sales_order_lines_2009_1.parquet"
   "online_sales_order_lines/online_sales_order_lines_2009_2.parquet"
   "online_sales_order_lines/online_sales_order_lines_2009_3.parquet"
   "online_sales_order_lines/online_sales_order_lines_2009_4.parquet"
   "online_sales_order_lines/online_sales_order_lines_2009_5.parquet"
-  "online_sales_order_lines/online_sales_order_lines_2009_6.parquet"
   "sales_quotas/sales_quotas_2007_1.parquet"
   "sales_quotas/sales_quotas_2007_2.parquet"
   "sales_quotas/sales_quotas_2007_3.parquet"

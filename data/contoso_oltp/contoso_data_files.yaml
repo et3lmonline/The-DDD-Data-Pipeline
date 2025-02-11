@@ -130,13 +130,13 @@ tables:
       # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2008_1.parquet
       # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2008_2.parquet
       # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2008_3.parquet
-      # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2008_4.parquet
+      - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2008_4.parquet
       # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2009_1.parquet
       # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2009_2.parquet
       # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2009_3.parquet
       # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2009_4.parquet
       # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2009_5.parquet
-      # - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2009_6.parquet
+      - data\contoso_oltp\data\online_sales_order_lines\online_sales_order_lines_2009_6.parquet
   - name: sales_quotas
     is_enabled: false
     files:
