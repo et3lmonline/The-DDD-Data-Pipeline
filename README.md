@@ -43,6 +43,10 @@ The DDD Data Pipelines leverage these frameworks:
     - إعدادات ال incremental load
     - ...
   - ❓ لماذا اخترت ملفات YAML بدلا من ملفات TOML (المدعوم افتراضيا من dlt)؟ ببساطة لم استطع التأقلم معها.
+  - هل نستطيع أن نتحكم في أي الأعمدة نقوم بسحبها؟ أم أننا مضطرون لسحب كل الأعمدة
+    ```sql
+    SELECT * FROM table_name
+    ```
 ### التأكد من صحة إعدادات YAML باستخدام [Pydantic](https://docs.pydantic.dev/latest/)
 - نظرًا لاعتمادنا على ملفات YAML في تنظيم الإعدادات، من المهم ضمان الالتزام بهيكل واضح (schema).
 - سنتعرف على كيفية استخدام Pydantic لإجراء عمليات التحقق (validations)، مثل:
