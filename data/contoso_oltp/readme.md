@@ -31,6 +31,21 @@ Follow these steps to download the parquet files and load its content into the s
      SRC_PG_CONTOSO_USERNAME=
      SRC_PG_CONTOSO_PASSWORD=
      ```
+     - Open a new terminal (**PowerShell**) and test whether the environment variables are integrated to the terminal
+       ```powershell
+       echo $env:SRC_PG_CONTOSO_HOST
+       ```
+     - If we didn't get an output, we have to create the environment variables either through the GUI or through the terminal
+       ```powershell
+       $env:FOO='BAR'; # session based
+       echo $env:FOO
+       # premetanet, replace `User` with `Machine` to make it system environment variable
+       [System.Environment]::SetEnvironmentVariable("SRC_PG_CONTOSO_HOST", "localhost", "User")
+       [System.Environment]::SetEnvironmentVariable("SRC_PG_CONTOSO_PORT", "5430", "User")
+       [System.Environment]::SetEnvironmentVariable("SRC_PG_CONTOSO_DATABASE", "dwh", "User")
+       [System.Environment]::SetEnvironmentVariable("SRC_PG_CONTOSO_USERNAME", "postgres", "User")
+       [System.Environment]::SetEnvironmentVariable("SRC_PG_CONTOSO_PASSWORD", "123456", "User")
+       ```
 3. Start Postgres database service
    ```bash
    docker compose -f 'docker\docker_compose_pg.yaml' up -d
