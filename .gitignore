@@ -9,6 +9,13 @@ data/**
 !data/contoso_oltp/readme.md
 !data/contoso_oltp/sql_02_update_table_serial_value.sql
 
+!data/bikes
+!data/bikes/commands.md
+!data/bikes/q01_create_db.sql
+!data/bikes/q02_create_tables.sql
+!data/bikes/q03_insert_values.sql
+
+
 # ###################### .gitignore Python template file
 
 # Byte-compiled / optimized / DLL files
