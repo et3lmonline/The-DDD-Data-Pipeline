@@ -31,6 +31,10 @@ tables:
     is_enabled: true
     files:
       - data\contoso_oltp\data\departments.parquet
+  - name: DepartmentGroups
+    is_enabled: true
+    files:
+      - data\contoso_oltp\DepartmentsPascal.parquet
   - name: job_titles
     is_enabled: true
     files:

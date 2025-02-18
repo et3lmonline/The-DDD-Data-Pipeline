@@ -3,6 +3,7 @@
 data/**
 !data/contoso_oltp
 !data/contoso_oltp/contoso_data_files.yaml
+!data/contoso_oltp/DepartmentsPascal.parquet
 !data/contoso_oltp/load_tables.py
 !data/contoso_oltp/download_parquet_files.sh
 !data/contoso_oltp/readme.md

@@ -493,3 +493,14 @@ CREATE TABLE  IF NOT EXISTS public.strategy_plans (
     updated_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
     deleted_at TIMESTAMP WITHOUT TIME ZONE DEFAULT NULL
 );
+
+
+DROP TABLE IF EXISTS public."DepartmentGroups" CASCADE;
+CREATE TABLE public."DepartmentGroups" (
+    "Id" INT NOT NULL,
+    "DepartmentName" text NOT NULL,
+    "CreatedAt" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "UpdatedAt" timestamp NULL,
+    "DeletedAt" timestamp NULL,
+    CONSTRAINT department_groups_pkey PRIMARY KEY ("Id")
+);
