@@ -11,7 +11,6 @@ import numpy as np
 import pyarrow.parquet as pq
 import yaml
 from dotenv import load_dotenv
-from psycopg2.errors import ForeignKeyViolation, UniqueViolation
 from sqlalchemy import create_engine
 from sqlalchemy.exc import IntegrityError
 
