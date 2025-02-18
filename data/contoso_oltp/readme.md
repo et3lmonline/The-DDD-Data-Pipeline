@@ -42,7 +42,7 @@ Follow these steps to download the parquet files and load its content into the s
        # premetanet, replace `User` with `Machine` to make it system environment variable
        [System.Environment]::SetEnvironmentVariable("SRC_PG_CONTOSO_HOST", "localhost", "User")
        [System.Environment]::SetEnvironmentVariable("SRC_PG_CONTOSO_PORT", "5430", "User")
-       [System.Environment]::SetEnvironmentVariable("SRC_PG_CONTOSO_DATABASE", "dwh", "User")
+       [System.Environment]::SetEnvironmentVariable("SRC_PG_CONTOSO_DATABASE", "contoso", "User")
        [System.Environment]::SetEnvironmentVariable("SRC_PG_CONTOSO_USERNAME", "postgres", "User")
        [System.Environment]::SetEnvironmentVariable("SRC_PG_CONTOSO_PASSWORD", "123456", "User")
        ```
