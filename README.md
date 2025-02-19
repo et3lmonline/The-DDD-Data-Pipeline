@@ -45,6 +45,20 @@ The DDD Data Pipelines leverage these frameworks:
     - إعدادات ال incremental load
     - ...
   - ❓ لماذا اخترت ملفات YAML بدلا من ملفات TOML (المدعوم افتراضيا من dlt)؟ ببساطة لم استطع التأقلم معها.
+    ```yaml
+    - name: brands
+      write_disposition: merge
+      primary_key:
+        - brand_id
+      incremental:
+        cursor_path: updated_at
+        initial_value: "1900-01-01T00:00:00Z"
+        row_order: asc
+    - name: categories
+      write_disposition: replace
+      primary_key:
+        - category_id
+    ```
   - هل نستطيع أن نتحكم في أي الأعمدة نقوم بسحبها؟ أم أننا مضطرون لسحب كل الأعمدة
     ```sql
     SELECT * FROM table_name
