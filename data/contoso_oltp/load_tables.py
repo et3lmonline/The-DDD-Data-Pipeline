@@ -89,8 +89,13 @@ def load_data_to_postgres(
 ):
     for chunk in read_parquet_in_chunks(file_path, chunk_size, batches_count):
 
-        modified_chunk = chunk.apply(set_created_at_and_updated_at_to_now, axis=1)
-        modified_chunk.to_sql(table_name, engine, if_exists="append", index=False)
+        # For table department groups, don't set created_at and updated_at to now,
+        # use the values in the parquet file.
+        if table_name == "DepartmentGroups":
+            chunk.to_sql(table_name, engine, if_exists="append", index=False)
+        else:
+            modified_chunk = chunk.apply(set_created_at_and_updated_at_to_now, axis=1)
+            modified_chunk.to_sql(table_name, engine, if_exists="append", index=False)
 
 
 if __name__ == "__main__":
@@ -127,7 +132,7 @@ if __name__ == "__main__":
                     chunk_size=chunk_size,
                     batches_count=batches_count,
                 )
-            # SQLAlchemy Excpetion
+            # SQLAlchemy Exception
             except IntegrityError as e:
                 print(e.orig)
                 continue
