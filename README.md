@@ -5,11 +5,11 @@ As in software development, where the DDD approach is used, I wanted to design a
 ![data pipeline](docs/images/data_pipeline_001.png)
 
 The DDD Data Pipelines leverage these frameworks:
-- **dlt**: for Extract/Load (EL) in ETL workflows.
-- **dbt**: for data transformation using SQL.
-- **Dagster**: for orchestration.
+- [**dlt**](https://dlthub.com/): for Extract/Load (EL) in ETL workflows.
+- [**dbt**](https://www.getdbt.com/): for data transformation using SQL.
+- [**Dagster**](https://dagster.io/): for orchestration.
 - Other `D`s
-  - **DuckDB**: an in-memory OLAP database.
+  - [**DuckDB**](https://duckdb.org/): an in-memory OLAP/analytics database.
   - **Docker**: for containerization.
 
 <!-- TOC -->
