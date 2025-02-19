@@ -44,7 +44,6 @@ The DDD Data Pipelines leverage these frameworks:
     - اسلوب تسجيل البيانات
     - إعدادات ال incremental load
     - ...
-  - ❓ لماذا اخترت ملفات YAML بدلا من ملفات TOML (المدعوم افتراضيا من dlt)؟ ببساطة لم استطع التأقلم معها.
     ```yaml
     - name: brands
       write_disposition: merge
@@ -59,6 +58,7 @@ The DDD Data Pipelines leverage these frameworks:
       primary_key:
         - category_id
     ```
+  - ❓ لماذا اخترت ملفات YAML بدلا من ملفات TOML (المدعوم افتراضيا من dlt)؟ ببساطة لم استطع التأقلم معها.
   - هل نستطيع أن نتحكم في أي الأعمدة نقوم بسحبها؟ أم أننا مضطرون لسحب كل الأعمدة
     ```sql
     SELECT * FROM table_name
