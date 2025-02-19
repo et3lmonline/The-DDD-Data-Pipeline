@@ -38,26 +38,15 @@ The DDD Data Pipelines leverage these frameworks:
 - سنستعرض عدة مواضيع، منها:
   - طرق تسجيل البيانات التي تم سحبها extracted في ال destination باستخدام اساليب مختلفة مثل append / merge / replace
   - استخدام ال incremental mode لسحب البيانات الجديدة new records أو التي تم تحديثها updated
-  - الإعتماد على ملفات YAML لتسجيل الإعدادات الخاصة بمصدر البيانات من
+  - الإعتماد على ملفات YAML لتسجيل الإعدادات الخاصة **بمصدر البيانات** من
+
+    ![config in yaml](docs/images/dlt_configs_in_yaml_sample_01.png)
+
     - تحديد اسماء الجداول tables التي يتم سحبها
     - ايقاف/تشغيل جدول معين حسب الحاجة
     - اسلوب تسجيل البيانات
     - إعدادات ال incremental load
     - ...
-    ```yaml
-    - name: brands
-      write_disposition: merge
-      primary_key:
-        - brand_id
-      incremental:
-        cursor_path: updated_at
-        initial_value: "1900-01-01T00:00:00Z"
-        row_order: asc
-    - name: categories
-      write_disposition: replace
-      primary_key:
-        - category_id
-    ```
   - ❓ لماذا اخترت ملفات YAML بدلا من ملفات TOML (المدعوم افتراضيا من dlt)؟ ببساطة لم استطع التأقلم معها.
   - هل نستطيع أن نتحكم في أي الأعمدة نقوم بسحبها؟ أم أننا مضطرون لسحب كل الأعمدة
     ```sql
@@ -91,5 +80,4 @@ The DDD Data Pipelines leverage these frameworks:
 
 ## Videos
 1. (Helper) Loading the Postgres source database from Parquet files.
-2. Builidng a PoC for the DDD data pipeline
-   ![The DDD data pipeline - Dagster Assets lineage](docs/images/ddd_data_pipeline_dagster_asset_lineage.png)
+2. Builidng our first dlt data pipeline
