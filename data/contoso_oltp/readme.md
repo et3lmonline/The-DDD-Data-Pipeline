@@ -57,14 +57,30 @@ Follow these steps to download the parquet files and load its content into the s
    - Verify that the paths specified under the `files` key are accurate and point to the correct Parquet files.
    - ⚠ Don't change the order of tables in the file to avoid database error related to violating foreign key constraints
 
-5. Create a virtual environment and install the necessary packages
+5. Create `requirements.txt` in the root directory with the following libraries, then create a virtual environment and install them
    ```
+   pandas==2.2.3
+   pyarrow==18.1.0
+   PyYAML==6.0.2
+   python-dotenv==1.0.1
+   psycopg2==2.9.10
+   SQLAlchemy==2.0.36
+   ```
+   ```bash
    python -m venv .venv
    .venv/Scripts/activate
    python.exe -m pip install --upgrade pip
    pip install -r requirements.txt
    ```
-6. **Run the Script**
+6. Add these VSCode to the project (`.vscode/settings.json`)
+   ```json
+   {
+       "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+       "python.terminal.activateEnvironment": true,
+       "python.envFile": "${workspaceFolder}/.env",
+   }
+   ```
+7. **Run the Script**
    - Execute the `load_tables.py` script to load data from the Parquet files into the PostgreSQL database.
      ```bash
      python data/contoso_oltp/load_tables.py
@@ -74,4 +90,4 @@ Follow these steps to download the parquet files and load its content into the s
      - Each batch contains up to **100,000 records**.
      - To change this, search for `batches_count` and set it to `-1` to load the entire file
 
-7. Run the SQL script located in `data\contoso_oltp\sql_02_update_table_serial_value.sql` to update the serial value associated with the primary key, this will enables us to insert new records with the right id
+8. Run the SQL script located in `data\contoso_oltp\sql_02_update_table_serial_value.sql` to update the serial value associated with the primary key, this will enables us to insert new records with the right id

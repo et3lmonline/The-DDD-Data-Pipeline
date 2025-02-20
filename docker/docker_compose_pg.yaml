@@ -5,9 +5,8 @@ services:
     image: postgres:15
     ports:
       - 5430:5432
-    user: ${SRC_PG_CONTOSO_USERNAME}
     env_file:
-      - "../.env"
+      - ../.env
     environment:
       POSTGRES_DB: ${SRC_PG_CONTOSO_DATABASE}
       POSTGRES_USER: ${SRC_PG_CONTOSO_USERNAME}
