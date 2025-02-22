@@ -1,4 +1,5 @@
 import os
+from datetime import datetime, timezone
 
 import dlt
 from dlt.destinations import filesystem
@@ -14,11 +15,33 @@ port = os.environ.get("SRC_PG_CONTOSO_PORT")
 connection_string = f"postgresql://{username}:{password}@{host}:{port}/{database}"
 
 # 01 : Source
-table_names = ["brands", "colors", "departments"]
+table_names = ["brands", "colors", "DepartmentGroups"]
 my_tables_data = sql_database(
     credentials=connection_string,
     table_names=table_names,
 )
+
+
+color_table = my_tables_data.resources.get("colors")
+color_incremental_config = dlt.sources.incremental(
+    # we can reference a path (APIs) > "data.update_at"
+    cursor_path="updated_at",
+    initial_value=datetime(1900, 1, 1, 0, 0, 0, tzinfo=timezone.utc),
+    primary_key=["id"],
+    row_order="asc",
+)
+color_table.apply_hints(incremental=color_incremental_config)
+
+
+department_groups_table = my_tables_data.resources.get("DepartmentGroups")
+department_groups_incremental_config = dlt.sources.incremental(
+    cursor_path="UpdatedAt",
+    initial_value=datetime(1900, 1, 1, 0, 0, 0, tzinfo=timezone.utc),
+    primary_key=["Id"],
+    # on_cursor_value_missing="include",
+    row_order="asc",
+)
+department_groups_table.apply_hints(incremental=department_groups_incremental_config)
 
 
 # 02 : Destination
@@ -29,7 +52,7 @@ local_filesystem_destination = filesystem(bucket_url=bucket_url)
 # 03 Pipeline
 destination_schema_name = "contoso_raw"
 pipeline = dlt.pipeline(
-    pipeline_name="my_first_dlt_pipeline",
+    pipeline_name="incremental_load_01",
     destination=local_filesystem_destination,
     dataset_name=destination_schema_name,
     progress="log",
