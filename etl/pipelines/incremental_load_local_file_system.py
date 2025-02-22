@@ -2,6 +2,7 @@ import os
 from datetime import datetime, timezone
 
 import dlt
+import sqlalchemy as sa
 from dlt.destinations import filesystem
 from dlt.sources.sql_database import sql_database
 
@@ -14,11 +15,19 @@ port = os.environ.get("SRC_PG_CONTOSO_PORT")
 
 connection_string = f"postgresql://{username}:{password}@{host}:{port}/{database}"
 
+
 # 01 : Source
+def query_adapter_callback(query: sa.Select, table: sa.Table):
+    print("table_name", table.fullname)
+    print("query\n===========\n", query)
+    return query
+
+
 table_names = ["brands", "colors", "DepartmentGroups"]
 my_tables_data = sql_database(
     credentials=connection_string,
     table_names=table_names,
+    query_adapter_callback=query_adapter_callback,
 )
 
 
