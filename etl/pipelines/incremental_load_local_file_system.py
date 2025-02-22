@@ -26,6 +26,7 @@ def query_adapter_callback(query: sa.Select, table: sa.Table):
 table_names = ["brands", "colors", "DepartmentGroups"]
 my_tables_data = sql_database(
     credentials=connection_string,
+    # schema='public',
     table_names=table_names,
     query_adapter_callback=query_adapter_callback,
 )
@@ -60,7 +61,7 @@ local_filesystem_destination = filesystem(bucket_url=bucket_url)
 
 # 03 Pipeline
 dlt.config["data_writer.disable_compression"] = True
-
+# dlt.config["schema.naming"] = "direct"
 
 pipelines_dir = os.environ.get("DLT_PIPELINES_DIR")
 destination_schema_name = "contoso_raw"
