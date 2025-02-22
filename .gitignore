@@ -15,6 +15,7 @@ data/**
 !data/bikes/q02_create_tables.sql
 !data/bikes/q03_insert_values.sql
 
+docker_volumes/
 
 # ###################### .gitignore Python template file
 
