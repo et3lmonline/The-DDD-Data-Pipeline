@@ -59,9 +59,14 @@ bucket_url = f"file:///{buckets_root_dir}"
 local_filesystem_destination = filesystem(bucket_url=bucket_url)
 
 # 03 Pipeline
+dlt.config["data_writer.disable_compression"] = True
+
+
+pipelines_dir = os.environ.get("DLT_PIPELINES_DIR")
 destination_schema_name = "contoso_raw"
 pipeline = dlt.pipeline(
     pipeline_name="incremental_load_01",
+    pipelines_dir=pipelines_dir,
     destination=local_filesystem_destination,
     dataset_name=destination_schema_name,
     progress="log",
