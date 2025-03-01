@@ -8,6 +8,7 @@ data/**
 !data/contoso_oltp/download_parquet_files.sh
 !data/contoso_oltp/readme.md
 !data/contoso_oltp/sql_02_update_table_serial_value.sql
+!data/contoso_oltp/sql_03_dml_queries.sql
 
 !data/bikes
 !data/bikes/commands.md
