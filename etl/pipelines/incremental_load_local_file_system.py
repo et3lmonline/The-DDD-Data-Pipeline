@@ -23,10 +23,9 @@ def query_adapter_callback(query: sa.Select, table: sa.Table):
     return query
 
 
-table_names = ["brands", "colors", "DepartmentGroups"]
+table_names = ["brands", "colors", "departments", "DepartmentGroups"]
 my_tables_data = sql_database(
     credentials=connection_string,
-    # schema='public',
     table_names=table_names,
     query_adapter_callback=query_adapter_callback,
 )
@@ -37,7 +36,6 @@ color_incremental_config = dlt.sources.incremental(
     # we can reference a path (APIs) > "data.update_at"
     cursor_path="updated_at",
     initial_value=datetime(1900, 1, 1, 0, 0, 0, tzinfo=timezone.utc),
-    primary_key=["id"],
     row_order="asc",
 )
 color_table.apply_hints(incremental=color_incremental_config)
@@ -47,28 +45,22 @@ department_groups_table = my_tables_data.resources.get("DepartmentGroups")
 department_groups_incremental_config = dlt.sources.incremental(
     cursor_path="UpdatedAt",
     initial_value=datetime(1900, 1, 1, 0, 0, 0, tzinfo=timezone.utc),
-    primary_key=["Id"],
     # on_cursor_value_missing="include",
     row_order="asc",
 )
 department_groups_table.apply_hints(incremental=department_groups_incremental_config)
 
-
 # 02 : Destination
-buckets_root_dir = os.environ.get("OUTPUTS_DIR")
-bucket_url = f"file:///{buckets_root_dir}"
-local_filesystem_destination = filesystem(bucket_url=bucket_url)
+BASE_BUCKET_URL = os.environ.get("DLT_LOAD_DIR")
+bucket_url = f"file:///{BASE_BUCKET_URL}/contos_incremental"
+destination = filesystem(bucket_url=bucket_url)
 
 # 03 Pipeline
 dlt.config["data_writer.disable_compression"] = True
-# dlt.config["schema.naming"] = "direct"
-
-pipelines_dir = os.environ.get("DLT_PIPELINES_DIR")
 destination_schema_name = "contoso_raw"
 pipeline = dlt.pipeline(
     pipeline_name="incremental_load_01",
-    pipelines_dir=pipelines_dir,
-    destination=local_filesystem_destination,
+    destination=destination,
     dataset_name=destination_schema_name,
     progress="log",
 )
