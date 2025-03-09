@@ -1,0 +1,10 @@
+# docker compose -f 'docker\docker_compose_mysql.yaml' up -d
+services:
+  mysql:
+    image: mysql:8.0.41-debian
+    container_name: mysql
+    environment:
+      MYSQL_DATABASE: 'bikes_store'
+      MYSQL_ROOT_PASSWORD: '123456'
+    ports:
+      - "3306:3306"
